@@ -1,0 +1,4 @@
+Httpi\Bundle\CoreBundle\Entity\Status:
+  StatusActive:
+    id: 1
+    name: Active

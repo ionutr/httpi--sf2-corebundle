@@ -1,0 +1,9 @@
+model: Httpi\Bundle\CoreBundle\Entity\Status
+tags: [ test, dev, prod ] # optional parameter
+save_in_reverse: false # optional parameter
+persistence: orm
+fixtures:
+    status_active:
+        id: 1
+        name: Active
+  

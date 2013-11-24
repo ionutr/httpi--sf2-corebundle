@@ -1,0 +1,45 @@
+{% extends "HttpiMaritimeAdminBundle:Default:layout_sidebar.html.twig" %}
+
+{% block css %}
+	{{ parent() }}
+	{% stylesheets 
+		'@HttpiMaritimeAdminBundle/Resources/public/css/form.css'
+	%}
+	<link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block js %}
+	{{ parent() }}
+	{% javascripts
+		'@HttpiMaritimeAdminBundle/Resources/public/js/form.js'
+	%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul>
+	<li><a href="{{ path('admin_status_') }}">Status Management</a></li>
+	<li><h1 class="title">- New Status</h1></li>
+</ul>
+{% endblock %}
+
+{% block content -%}
+<form action="{{ path('admin_status__create') }}" method="post" class="default" {{ form_enctype(form) }}>
+	{{ form_widget(form) }}
+    <div>
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </div>
+</form>
+
+<ul class="record_actions">
+	<li>
+		<a href="{{ path('admin_status_') }}">
+			Back to the list
+		</a>
+	</li>
+</ul>
+{% endblock %}

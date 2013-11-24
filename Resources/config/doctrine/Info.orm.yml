@@ -1,0 +1,19 @@
+Httpi\Bundle\CoreBundle\Entity\Info:
+  type: entity
+  table: info
+  id:
+    id:
+      type: bigint
+      generator:
+        strategy: AUTO
+  fields:
+    created_at:
+      type: datetime
+    created_by_user_id:
+      type: integer
+    modified_at:
+      type: datetime
+      nullable: true
+    last_modified_by_user_id:
+      type: integer
+      nullable: true

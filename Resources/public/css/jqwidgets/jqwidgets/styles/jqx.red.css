@@ -1,0 +1,12 @@
+﻿.jqx-widget-content-red{border-color: #fff;}
+.jqx-fill-state-normal-red, .jqx-widget-header-red{border-color:#fff; background-color:#bf1e09; color: #fff;}
+.jqx-fill-state-hover-red{border-color:#fff;  background-color:#f3260a; color: #000;}
+.jqx-fill-state-pressed-red{border-color:#5e8cb3; background-color:#f3260a}
+.jqx-fill-state-focus-red { border-color: #477396; }
+.jqx-scrollbar-state-normal-red, .jqx-grid-bottomright-red, .jqx-panel-bottomright-red, .jqx-listbox-bottomright-red{background-color:#bf1e09}
+.jqx-widget-red .jqx-grid-column-header-red, .jqx-grid-cell-red, .jqx-widget-red .jqx-grid-cell-red, .jqx-widget-red .jqx-grid-group-cell-red, .jqx-grid-group-cell-red{border-color:#fff}
+.jqx-tabs-title-selected-bottom-red, .jqx-tabs-selection-tracker-bottom-red, .jqx-tabs-title-selected-top-red, .jqx-tabs-selection-tracker-top-red{border-color:#fff; border-bottom:1px solid #fff; background:#fff}
+.jqx-grid-cell-sort-alt-red, .jqx-grid-cell-filter-alt-red, .jqx-grid-cell-pinned-red, .jqx-grid-cell-alt-red, .jqx-grid-cell-sort-red{ background-color:#e7eef8}
+.jqx-grid-cell-selected-red{ background-color:#0c9522;  color:#2b465e}
+.jqx-grid-cell-hover-red{ background-color:#0c9522}
+	.jqx-menu-vertical-red{background: #bf1e09;}

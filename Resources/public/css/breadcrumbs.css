@@ -1,0 +1,26 @@
+#breadcrumbs {
+	font-family: Tahoma, Arial;
+	font-size: 24px;
+}
+
+#breadcrumbs .title {
+	
+}
+
+#breadcrumbs ul {
+	width: 800px;
+	overflow: hidden;
+}
+
+#breadcrumbs li {
+	float: left;
+	margin-right: 10px;
+}
+
+#breadcrumbs li a {
+	color: #000;
+}
+
+#breadcrumbs li a:hover {
+	color: #fff;
+}

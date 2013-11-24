@@ -1,0 +1,8 @@
+parameters:
+    httpi_core.fileupload.class: Httpi\Bundle\CoreBundle\Library\File\FileUpload
+
+services:
+    httpi_core.fileupload:
+        class: %httpi_core.fileupload.class%
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"

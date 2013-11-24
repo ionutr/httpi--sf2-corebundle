@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% block html %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{% block title %}Please enter a value for the title block!{% endblock %}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset={%  block meta_charset %}utf-8{% endblock %}" />
+		<meta http-equiv="Content-Language" content="{%  block meta_content_language %}en{% endblock %}" />
+		<meta name="Publisher" content="{% block meta_publisher %}httpi{% endblock %}" />
+		<meta name="Copyright" content="{% block meta_copyright %}{% endblock %}" />
+		
+            {% block css %}
+                {% stylesheets
+                '@HttpiCoreBundle/Resources/public/css/reset.css'
+                %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+                {% endstylesheets %}
+            <!--<link href="{{ asset('bundles/httpimaritimeadmin/css/general.css') }}" type="text/css" rel="stylesheet" />-->
+            <!--<link href="{{ asset('bundles/httpicore/css/breadcrumbs.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jquerymsgbox/Styles/msgBoxLight.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jqwidgets/jqwidgets/styles/jqx.base.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jqwidgets/jqwidgets/styles/jqx.darkblue.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jqwidgets/jqwidgets/styles/jqx.lightness.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jqwidgets/jqwidgets/styles/jqx.green.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/js/jqwidgets/jqwidgets/styles/jqx.red.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/httpicore/css/datagrid.css') }}" type="text/css" rel="stylesheet" />-->
+            {% endblock %}
+
+	</head>		
+	<body>
+		
+		<!-- #wrapper -->
+		<div id="wrapper">
+
+            {% block menu %}{% endblock %}
+				
+				<!-- #page -->
+				<div id="page">
+				{% block page %}
+					
+					<!-- #breadcrumbs -->
+					<div id="breadcrumbs">
+					{% block breadcrumbs %}{% endblock %}
+					</div>
+					<!-- //#breadcrumbs -->
+					
+					<!-- #content -->
+					<div id="content" class="{% block contentCssClass %}full{% endblock %}">
+					{% block content %}{% endblock %}
+					</div>
+					<!-- //#content -->
+				
+				{% endblock %}	
+				</div>
+				<!-- //#page -->
+			
+		</div>
+		<!-- //#wrapper -->
+		
+		{% block js %}
+			{% javascripts
+				'@HttpiCoreBundle/Resources/public/js/jquery.min.js'
+			%}
+			<script src="{{ asset_url }}" type="text/javascript"></script>
+			{% endjavascripts %}
+        {% endblock %}
+
+        {% block jsexec %}{% endblock %}
+	</body>
+</html>
+{% endblock %}

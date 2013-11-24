@@ -1,0 +1,7 @@
+httpi_core_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: HttpiCoreBundle:Default:index }
+
+HttpiCoreBundle_admin_status_:
+    resource: "@HttpiCoreBundle/Resources/config/routing/status.yml"
+    prefix:   /admin/status/

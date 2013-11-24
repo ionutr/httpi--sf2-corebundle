@@ -1,0 +1,55 @@
+{% extends "HttpiMaritimeAdminBundle:Default:layout_sidebar.html.twig" %}
+
+{% block css %}
+	{{ parent() }}
+	{% stylesheets 
+		'@HttpiMaritimeAdminBundle/Resources/public/css/form.css'
+	%}
+	<link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block js %}
+	{{ parent() }}
+	{% javascripts
+		'@HttpiMaritimeAdminBundle/Resources/public/js/form.js'
+	%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul>
+	<li><a href="{{ path('admin_status_') }}">Status Management</a></li>
+	<li><h1 class="title">- Edit #{{ entity.id }}</h1></li>
+</ul>
+{% endblock %}
+
+{% block content -%}
+<form action="{{ path('admin_status__update', { 'id': entity.id }) }}" class="default" method="post" {{ form_enctype(edit_form) }}>
+	<div class="default">
+		<input type="hidden" name="_method" value="PUT" />
+		{{ form_widget(edit_form) }}
+		<div>
+			<p>
+				<button type="submit">Edit</button>
+			</p>
+		</div>
+	</div>
+</form>
+
+<ul class="record_actions">
+    <li>
+		<p class="button back">
+			<a href="{{ path('admin_status_') }}">Back to list</a>
+		</p>
+    </li>
+    <li>
+        <form action="{{ path('admin_status__delete', { 'id': entity.id }) }}" method="post" class="delete requires-confirmation">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit" class="delete">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

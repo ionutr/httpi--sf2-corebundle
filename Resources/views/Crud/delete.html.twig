@@ -1,0 +1,24 @@
+{% extends "HttpiCoreBundle:Default:base.html.twig" %}
+
+ {% block jsexec %}
+     <script type="text/javascript">
+         $(document).ready(function() {
+
+             {% for message in app.session.flashbag.get('flash') %}
+             var params = {
+                 title: '{{ message.title }}',
+                 content: '{{ message.content }}',
+                 type: '{{ message.type }}'
+             };
+
+             if (params.type == 'confirm') {
+                 params.buttons = [{ value: "Yes" }, { value: "No" }];
+                 params.success = {{ message.success | raw }};
+             }
+
+             $.msgBox(params);
+             {% endfor %}
+
+         });
+     </script>
+ {% endblock %}

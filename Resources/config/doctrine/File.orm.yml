@@ -1,0 +1,65 @@
+Httpi\Bundle\CoreBundle\Entity\File:
+    type: entity
+    table: file
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        mimetype:
+            type: string
+            length: 128
+            fixed: false
+            nullable: true
+        path:
+            type: text
+            nullable: false
+        filename:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+        originalFilename:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+            column: original_filename
+        description:
+            type: text
+            nullable: true
+        size:
+            type: string
+            length: 32
+            fixed: false
+            nullable: true
+        file:
+            type: text
+            nullable: true
+    manyToOne:
+        info:
+            targetEntity: Httpi\Bundle\CoreBundle\Entity\Info
+            cascade: ["persist"]
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                info_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        status:
+            targetEntity: Httpi\Bundle\CoreBundle\Entity\Status
+            cascade: { }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                status_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        imports:
+            targetEntity: Httpi\Bundle\CoreBundle\Entity\Import
+            mappedBy: files
+    lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+admin_status_:
+    pattern:  /
+    defaults: { _controller: "HttpiCoreBundle:Status:index" }
+
+admin_status__show:
+    pattern:  /{id}/show
+    defaults: { _controller: "HttpiCoreBundle:Status:show" }
+
+admin_status__new:
+    pattern:  /new
+    defaults: { _controller: "HttpiCoreBundle:Status:new" }
+
+admin_status__create:
+    pattern:  /create
+    defaults: { _controller: "HttpiCoreBundle:Status:create" }
+    requirements: { _method: post }
+
+admin_status__edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "HttpiCoreBundle:Status:edit" }
+
+admin_status__update:
+    pattern:  /{id}/update
+    defaults: { _controller: "HttpiCoreBundle:Status:update" }
+    requirements: { _method: post|put }
+
+admin_status__delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "HttpiCoreBundle:Status:delete" }
+    requirements: { _method: post|delete }

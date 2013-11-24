@@ -1,0 +1,38 @@
+{% extends "HttpiMaritimeAdminBundle:Default:layout_sidebar.html.twig" %}
+
+{% block breadcrumbs %}
+<ul>
+	<li><a href="{{ path('httpi_maritime_admin_lexicon_index') }}">Lexicon</a></li>
+	<li><h1 class="title">- Edit #{{ id }}</h1></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+{{ form(form, {'attr': {'class': 'default'}, 'action': '#'}) }}
+<p class="button error delete"><a href="{{ path('httpi_maritime_admin_lexicon_delete', {'id': id}) }}">Delete</a></p>
+<p class="button back"><a href="{{ path('httpi_maritime_admin_lexicon_index') }}">Back to list</a></p>
+{% endblock %}
+
+{% block sidebar %}
+<form action="#" class="dropzone"></form>
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    {% stylesheets
+    '@HttpiMaritimeAdminBundle/Resources/public/css/form.css'
+    '@HttpiMaritimeAdminBundle/Resources/public/js/dropzone/css/dropzone.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    {% javascripts
+    '@HttpiMaritimeAdminBundle/Resources/public/js/form.js'
+    '@HttpiMaritimeAdminBundle/Resources/public/js/dropzone/dropzone.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

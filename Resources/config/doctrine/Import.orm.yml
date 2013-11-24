@@ -1,0 +1,78 @@
+Httpi\Bundle\CoreBundle\Entity\Import:
+    type: entity
+    table: import
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        objectFqn:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+            column: object_fqn
+        title:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        data:
+            type: object
+            nullable: true
+        startedAt:
+            type: datetime
+            nullable: true
+            column: started_at
+        endedAt:
+            type: datetime
+            nullable: true
+            column: ended_at
+        success:
+            type: boolean
+            nullable: true
+            column: success
+        message:
+            type: text
+            nullable: true
+        size:
+            type: string
+            length: 32
+            fixed: false
+            nullable: true
+        rows:
+            type: smallint
+            unsigned: true
+            nullable: true
+    oneToOne:
+        info:
+            targetEntity: Httpi\Bundle\CoreBundle\Entity\Info
+            cascade: ["persist"]
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                info_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        files:
+            targetEntity: Httpi\Bundle\CoreBundle\Entity\File
+            cascade: ["persist"]
+            inversedBy: imports
+            joinTable:
+                name: import_file
+                joinColumns:
+                    import_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    file_id:
+                        referencedColumnName: id
+                        unique: true
+            orphanRemoval: true
+    lifecycleCallbacks: {  }

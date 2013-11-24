@@ -1,0 +1,25 @@
+{% extends "HttpiCoreBundle:Default:base.html.twig" %}
+
+{% block breadcrumbs %}
+<ul>
+	<li><a href="{{ path('httpi_maritime_admin_lexicon_index') }}">Lexicon</a></li>
+	<li><h1 class="title">- Add</h1></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+{{ form(form, {'attr': {'class': 'default'}, 'action': '#'}) }}
+{% endblock %}
+
+{% block css %}
+	{{ parent() }}
+	{% stylesheets
+        '@HttpiCoreBundle/Resources/public/css/form.css'
+        '@HttpiCoreBundle/Resources/public/js/jqwidgets/jqwidgets/styles/jqx.base.css'
+        '@HttpiCoreBundle/Resources/public/js/jqwidgets/jqwidgets/styles/jqx.darkblue.css'
+        '@HttpiCoreBundle/Resources/public/js/jqwidgets/jqwidgets/styles/jqx.green.css'
+        '@HttpiCoreBundle/Resources/public/js/jqwidgets/jqwidgets/styles/jqx.red.css'
+    %}
+	<link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
