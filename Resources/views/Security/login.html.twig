@@ -1,0 +1,40 @@
+{% set layout = extendsTemplate is defined ? extendsTemplate : 'HttpiCoreBundle:Default:base.html.twig' %}
+{% extends layout %}
+
+{% block bodyCssClass %}login{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    {% stylesheets
+    '@HttpiCoreBundle/Resources/public/css/form.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    {% block beforeLoginForm %}{% endblock %}
+    <form class="default login" action="{{ path('login_check') }}" method="post">
+        {% block formCustom %}{% endblock %}
+        <div class="default">
+            <div class="container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+            </div>
+
+            <div class="container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password" />
+            </div>
+
+             {% if error %}
+                 <p class="error">{{ error.message }}</p>
+             {% endif %}
+
+            <div class="container">
+                <button type="submit">login</button>
+            </div>
+        </div>
+    </form>
+    {% block afterLoginForm %}{% endblock %}
+{% endblock %}

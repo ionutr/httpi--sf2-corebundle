@@ -6,7 +6,7 @@ form.default div.default {
 	
 }
 
-form.default div.default div {
+form.default div.default div, form.default div.default .container {
 	width: 100%;
 	overflow: hidden;
 	margin-top: 20px;
@@ -17,6 +17,22 @@ form.default div.default label {
 	float: left;
 	width: 100px;
 	font-weight: bold;
+}
+
+form.login {
+    width: 300px;
+    padding: 10px;
+    margin: 100px auto;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+}
+
+p.error {
+    color: #f00;
+    font-weight: bold;
+    margin-left: 100px;
+    margin-top: 10px;
 }
 
 p.success {
