@@ -1,4 +1,5 @@
-{% extends "HttpiCoreBundle:Default:base.html.twig" %}
+{% set layout = extendsTemplate is defined and extendsTemplate ? extendsTemplate : 'HttpiCoreBundle:Default:base.html.twig' %}
+{% extends layout %}
 
 {% block breadcrumbs %}
 <ul>
@@ -40,13 +41,10 @@
 	<tbody>
 	{% for entity in entities %}
 		<tr>
-			<td class="col-id"><a href="{{ path('admin_status__show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+			<td class="col-id"><a href="{{ path('admin_status__edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
 			<td class="col-name">{{ entity.name }}</td>
 			<td class="col-actions">
 				<ul>
-					<li>
-						<a href="{{ path('admin_status__show', { 'id': entity.id }) }}">show</a>
-					</li>
 					<li>
 						<a href="{{ path('admin_status__edit', { 'id': entity.id }) }}">edit</a>
 					</li>

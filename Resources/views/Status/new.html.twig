@@ -1,4 +1,5 @@
-{% extends "HttpiMaritimeAdminBundle:Default:layout_sidebar.html.twig" %}
+{% set layout = extendsTemplate is defined and extendsTemplate ? extendsTemplate : 'HttpiCoreBundle:Default:base.html.twig' %}
+{% extends layout %}
 
 {% block css %}
 	{{ parent() }}

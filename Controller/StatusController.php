@@ -4,7 +4,6 @@ namespace Httpi\Bundle\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Httpi\Bundle\CoreBundle\Controller\CrudController;
 
 use Httpi\Bundle\CoreBundle\Entity\Status;
 use Httpi\Bundle\CoreBundle\Form\StatusType;
@@ -15,18 +14,29 @@ use Httpi\Bundle\CoreBundle\Form\StatusType;
  */
 class StatusController extends Controller
 {
+    
+    protected $extendsTemplate = false;
+
+    private function readAndSetExtendsTemplate()
+    {
+        $this->extendsTemplate = $this->container->getParameter('extends_template');
+    }
+
     /**
      * Lists all Status entities.
      *
      */
     public function indexAction()
     {
+        $this->readAndSetExtendsTemplate();
+
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('HttpiCoreBundle:Status')->findAll();
 
         return $this->render('HttpiCoreBundle:Status:index.html.twig', array(
             'entities' => $entities,
+            'extendsTemplate' => $this->extendsTemplate
         ));
     }
 
@@ -36,6 +46,7 @@ class StatusController extends Controller
      */
     public function createAction(Request $request)
     {
+        $this->readAndSetExtendsTemplate();
         $entity  = new Status();
         $form = $this->createForm(new StatusType(), $entity);
         $form->submit($request);
@@ -45,12 +56,13 @@ class StatusController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_status__show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_status__edit', array('id' => $entity->getId())));
         }
 
         return $this->render('HttpiCoreBundle:Status:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'extendsTemplate' => $this->extendsTemplate
         ));
     }
 
@@ -60,12 +72,14 @@ class StatusController extends Controller
      */
     public function newAction()
     {
+        $this->readAndSetExtendsTemplate();
         $entity = new Status();
         $form   = $this->createForm(new StatusType(), $entity);
 
         return $this->render('HttpiCoreBundle:Status:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'extendsTemplate' => $this->extendsTemplate
         ));
     }
 
@@ -75,6 +89,8 @@ class StatusController extends Controller
      */
     public function showAction($id)
     {
+        $this->readAndSetExtendsTemplate();
+        $this->readAndSetExtendsTemplate();
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('HttpiCoreBundle:Status')->find($id);
@@ -87,7 +103,9 @@ class StatusController extends Controller
 
         return $this->render('HttpiCoreBundle:Status:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+            'extendsTemplate' => $this->extendsTemplate
+        ));
     }
 
     /**
@@ -96,6 +114,7 @@ class StatusController extends Controller
      */
     public function editAction($id)
     {
+        $this->readAndSetExtendsTemplate();
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('HttpiCoreBundle:Status')->find($id);
@@ -111,6 +130,7 @@ class StatusController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'extendsTemplate' => $this->extendsTemplate
         ));
     }
 
@@ -120,6 +140,7 @@ class StatusController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $this->readAndSetExtendsTemplate();
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('HttpiCoreBundle:Status')->find($id);
@@ -143,6 +164,7 @@ class StatusController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'extendsTemplate' => $this->extendsTemplate
         ));
     }
     /**
