@@ -6,3 +6,9 @@ services:
         class: %httpi_core.fileupload.class%
         arguments:
             entityManager: "@doctrine.orm.entity_manager"
+
+    data_collector.app:
+            class: Httpi\Bundle\CoreBundle\DataCollector\AppDataCollector
+            arguments: [@service_container, true]
+            tags:
+                - { name: data_collector, template: "HttpiCoreBundle:Collector:app", id: "app" }

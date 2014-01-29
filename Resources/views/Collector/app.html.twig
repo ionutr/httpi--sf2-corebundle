@@ -1,0 +1,33 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+
+    {% set icon %}
+    <img height="28" alt="AppInfo" src="data:image/png;base64,
+    iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jWNUDs34z4AH3E2fjk+agQmvLBFg1IDBYAAjw57
+    /eNMBUS7474wqiMyHsf87Y2IGBgYGFqzO2otQwLiXCBcQC2CGIRsKNwDZWf+dIYqQXYLTUKoE4oAaAACl5x4cqsb9jgAAAABJRU5ErkJggg==" />
+    <span class="sf-toolbar-info-piece-additional-detail">Version {{ collector.getApp }}</span>
+    {% endset %}
+
+    {% set text %}
+    <div class="sf-toolbar-info-piece">
+        <strong>Version</strong>
+        <span>{{ collector.getApp }}</span>
+    </div>
+    {% endset %}
+
+    {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+
+{% endblock %}
+
+{% block head %}
+    {# if the web profiler panel needs some specific JS or CSS files #}
+{% endblock %}
+
+{% block menu %}
+    {# the menu content #}
+{% endblock %}
+
+{% block panel %}
+    {# the panel content #}
+{% endblock %}
